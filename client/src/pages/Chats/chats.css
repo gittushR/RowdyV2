@@ -1,0 +1,57 @@
+.chatPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .wrapper {
+    flex: 1;
+    overflow: scroll;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .chat {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      p,
+      li {
+        margin: 10px 0px;
+      }
+
+      .message {
+        padding: 20px;
+        margin-bottom: 10px;
+
+        &.user {
+          background-color: #2c2937;
+          border-radius: 20px;
+          max-width: 80%;
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+  .scrollbox {
+    overflow: auto;
+    visibility: hidden;
+  }
+
+  .scrollbox-inner,
+  .scrollbox:hover {
+    visibility: visible;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    right: 5px;
+    position: absolute;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #fef0ff;
+    border-radius: 10px;
+  }
+}
