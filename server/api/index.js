@@ -1,11 +1,12 @@
 import app from "./src/app.js";
-import { connectToDatabase } from "./src/repo/connection.js";
+import { connectToDatabase } from "../src/repo/connection.js";
 import express from "express";
 
 //import cors from "cors";
 import { config } from "dotenv";
 import { clerkMiddleware } from "@clerk/express";
-import appRouter from "./src/routes/routes.js";
+import appRouter from "../src/routes/routes.js";
+
 config();
 
 const PORT = process.env.PORT || 5000;
