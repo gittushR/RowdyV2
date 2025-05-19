@@ -7,6 +7,7 @@ import {
   saveChats,
 } from "../controllers/chatControllers.js";
 import { requireAuth } from "@clerk/express";
+import path from "path";
 
 const appRouter = Router();
 
@@ -30,5 +31,9 @@ appRouter.get("/chat/userChats", requireAuth(), fetchUserChats);
 
 //Fetch chats of that particular id
 appRouter.get("/chat/:id", requireAuth(), fetchChat);
+
+appRouter.get('/{*any}', (req, res) => {
+  res.sendFile(path.join(__dirname, "../client", "index.html"));
+});
 
 export default appRouter;

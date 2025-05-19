@@ -64,7 +64,12 @@ const NewPrompt = ({ data }) => {
     const prompt = text;
     const chat = ai.chats.create({
       model: "gemini-2.0-flash",
-      history: data?.history,
+      history: [
+        data?.history.map(({ role, parts }) => ({
+          role,
+          parts: [{ text: parts[0].text }],
+        })),
+      ],
       config: {
         //safetySettings:safetySettings,
         maxOutputTokens: 1500,
