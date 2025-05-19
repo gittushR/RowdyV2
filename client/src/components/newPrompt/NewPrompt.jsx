@@ -24,10 +24,6 @@ const NewPrompt = ({ data }) => {
   const endRef = useRef(null);
   const formRef = useRef(null);
 
-  useEffect(() => {
-    endRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [data, question, answer, img.dbData, img.aiData]);
-
   const queryClient = useQueryClient();
   // Mutations
   const mutation = useMutation({
@@ -64,12 +60,7 @@ const NewPrompt = ({ data }) => {
     const prompt = text;
     const chat = ai.chats.create({
       model: "gemini-2.0-flash",
-      history: [
-        data?.history.map(({ role, parts }) => ({
-          role,
-          parts: [{ text: parts[0].text }],
-        })),
-      ],
+      history: data?.history,
       config: {
         //safetySettings:safetySettings,
         maxOutputTokens: 1500,
@@ -111,6 +102,10 @@ const NewPrompt = ({ data }) => {
     }
     hasRun.current = true;
   }, []);
+
+  useEffect(() => {
+    endRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [data, question, answer, img.dbData, img.aiData]);
 
   return (
     <>

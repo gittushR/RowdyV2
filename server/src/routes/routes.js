@@ -33,7 +33,7 @@ appRouter.get("/chat/userChats", requireAuth(), fetchUserChats);
 appRouter.get("/chat/:id", requireAuth(), fetchChat);
 
 appRouter.get('/{*any}', (req, res) => {
-  res.sendFile(path.join(__dirname, "../client", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
 
 export default appRouter;

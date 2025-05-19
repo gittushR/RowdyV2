@@ -35,7 +35,7 @@ app.use((err, req, res, next) => {
   res.status(401).send("Unauthenticated");
 });
 
-app.use(express.static(path.join(__dirname, "../client")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 
 connectToDatabase()
