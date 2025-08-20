@@ -57,7 +57,7 @@ rowdy-ai/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/rowdy-ai.git
+   git clone https://github.com/gittushR/RowdyV2.git
    cd rowdy-ai
    ```
 
@@ -112,7 +112,7 @@ To get the required environment variables, visit these websites:
 1. **Start the Backend Server**
    ```bash
    cd server
-   npm start
+   npm run dev
    ```
    The server will run on `http://localhost:5000`
 
@@ -148,11 +148,11 @@ Please ensure your code follows our coding standards and includes appropriate te
 
 If you use this project or any part of it, please provide proper credit by linking back to this repository and mentioning the original creator.
 
-**Please credit as:** *"Built upon RowdyAI by [Your Name]"*
+**Please credit as:** *"Built upon RowdyAI by Tushar Rathi"*
 
 ## 🐛 Issues & Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/yourusername/rowdy-ai/issues) on GitHub.
+If you encounter any issues or have questions, please [open an issue](https://github.com/gittushR/RowdyV2.git/issues) on GitHub.
 
 ## 🌟 Show Your Support
 
