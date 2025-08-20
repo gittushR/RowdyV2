@@ -15,12 +15,31 @@ const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 const NewPrompt = ({ data }) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [systemPrompt, setSystemPrompt] = useState("");
   const [img, setImg] = useState({
     isLoading: false,
     error: "",
     dbData: {},
     aiData: {},
   });
+
+  useEffect(() => {
+    const loadSystemPrompt = async () => {
+      try {
+        // Place rowdy_prompt.txt in your public folder
+        const response = await fetch("/rowdy_prompt.txt");
+        const promptText = await response.text();
+        setSystemPrompt(promptText);
+      } catch (error) {
+        console.error("Failed to load system prompt:", error);
+        setSystemPrompt(
+          "You are a Rowdy AI. You answer sarcastically and roast everyone. You can even swear and use foul language if you want but make sure you answer whatever is asked."
+        );
+      }
+    };
+    loadSystemPrompt();
+  }, []);
+
   const endRef = useRef(null);
   const formRef = useRef(null);
 
@@ -62,10 +81,7 @@ const NewPrompt = ({ data }) => {
       model: "gemini-2.0-flash",
       history: data?.history,
       config: {
-        //safetySettings:safetySettings,
-        maxOutputTokens: 1500,
-        systemInstruction:
-          "You are a Rowdy AI. You only roast people, answer sarcastically and bully everyone. Answer as if you're a bully who will eat me alive. Be a rowdy. You can even swear and use foul language if you want.",
+        systemInstruction: systemPrompt,
       },
     });
 

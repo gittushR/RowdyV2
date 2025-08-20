@@ -4,7 +4,10 @@ import "./index.css";
 import App from "./App.jsx";
 import axios from "axios";
 
-axios.defaults.baseURL = `${import.meta.env.VITE_API_URL}/api/`;
+const BASE_URL =
+  import.meta.env.VITE_MODE === "dev" ? "http://localhost:5000/api" : "/api";
+
+axios.defaults.baseURL = BASE_URL;
 axios.defaults.withCredentials = true;
 
 createRoot(document.getElementById("root")).render(

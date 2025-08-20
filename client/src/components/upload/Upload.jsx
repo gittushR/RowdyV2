@@ -8,7 +8,6 @@ const publicKey = import.meta.env.VITE_IMAGE_KIT_PUBLIC_KEY;
 const authenticator = async () => {
   try {
     const response = await axios.get("/upload");
-    console.log(response);
 
     if (response.status != 200) {
       const errorText = await response.text();

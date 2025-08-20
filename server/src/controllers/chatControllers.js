@@ -65,7 +65,7 @@ export const fetchUserChats = async (req, res, next) => {
     if (userChats.length === 0) {
       return res.status(200).json([]);
     }
-
+    
     return res.status(200).json(userChats[0].chats);
   } catch (error) {
     console.error(error);

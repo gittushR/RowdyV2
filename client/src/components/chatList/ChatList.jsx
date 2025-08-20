@@ -6,7 +6,11 @@ import { getChatHistory } from "../../helpers/api-communicators.js";
 import Loader from "../Loader/Loader.jsx";
 
 const ChatList = () => {
-  const { isPending, error, data } = useQuery({
+  const {
+    data: chatData,
+    isPending,
+    error,
+  } = useQuery({
     queryKey: ["userChats"],
     queryFn: async () => await getChatHistory(),
   });
@@ -26,8 +30,8 @@ const ChatList = () => {
               <Loader />
             ) : error ? (
               "Something went wrong!"
-            ) : data.length ? (
-              data.map((chat) => (
+            ) : chatData.length ? (
+              chatData.slice(0).reverse().map((chat) => (
                 <Link to={`/dashboard/chats/${chat._id}`} key={chat._id}>
                   {chat.title}
                 </Link>
