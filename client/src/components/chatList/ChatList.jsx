@@ -19,8 +19,8 @@ const ChatList = () => {
     <div className="chatList">
       <span className="title">DASHBOARD</span>
       <Link to="/dashboard">Create a new Chat</Link>
-      <Link to="https://github.com/gittushR/RowdyV2">About Rowdy AI</Link>
-      <Link to="https://iamtusharrathi.netlify.app/">Contact Dev</Link>
+      <Link to="https://github.com/gittushR/RowdyV2" target="_blank" rel="noopener noreferrer">About Rowdy AI</Link>
+      <Link to="https://iamtusharrathi.netlify.app/" target="_blank" rel="noopener noreferrer">Contact Dev</Link>
       <hr />
       <span className="title">RECENT CHATS</span>
       <div className="scrollbox">
