@@ -63,7 +63,7 @@ const Footer = () => {
         <p className="footer__text">
           &copy; <span id="year"></span> - Built by{" "}
           <a
-            href="https://github.com/gittushR"
+            href="https://iamtusharrathi.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
